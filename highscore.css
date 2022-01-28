@@ -1,0 +1,51 @@
+body {
+    display: block;
+    background-color: #e07a5f;
+    margin: revert;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 250px;
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+    font-size: 50px;
+    left: -11%;
+    position: relative;
+}
+
+p {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 20px;
+    box-sizing: border-box;
+    font-size: 22px;
+    text-align: center;
+}
+
+.start:hover {
+    opacity: 0.5;
+    box-shadow: 0 0.4rem 1.4rem 0 black;
+}
+
+.start {
+    background-color: #3d405b;
+    border-radius: 8px;
+    border-color: thistle;
+    color: #f2cc8f;
+    cursor: pointer;
+    font-size: 1.2em;
+    letter-spacing: 0.21px;
+    line-height: 8px;
+    max-width: 146px;
+    padding: 10px 24px;
+    text-align: center;
+    transition-duration: 0.20s;
+    transition-property: inherit;
+    transition-timing-function: linear;
+    margin: 0.6em auto;
+    display: block;
+    position: relative;
+    left: -188px;
+}
