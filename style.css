@@ -114,6 +114,9 @@ h2 {
     left: 30%;
 }
 
-.hud-main-text {
-
+#timer {
+    font-size: 25px;
+}
+#tim {
+    font-size: 25px;
 }

@@ -2,9 +2,17 @@
 var questionContainer = document.querySelector("#progressText")
 var asnwerContainer = document.querySelector("#progressBar")
 var scoreContainer = document.querySelector("#score")
+var currentTime = document.querySelector("#currentTime")
+
+var timer = document.querySelector("#timer");
+
 
 var index = 0;
 var score = 0;
+var countdown = 60;
+var holdInterval = 0;
+
+var scoreArr = JSON.parse(localStorage.getItem("HighScore")) || [];
 
 var questionArray = [
     {
@@ -28,6 +36,34 @@ var questionArray = [
         correct: "quotes"
     }
 ]
+
+function startTimer(){
+    var timerInterval = setInterval(function (){
+        countdown--;
+        timer.textContent = "time: " + countdown;
+        if(countdown <= 0){
+            clearInterval(timerInterval);
+            Exit();
+        }
+    }, 1000);
+}
+
+// timer.addEventListener("click", function () {
+//     // We are checking zero because its originally set to zero
+//     if (holdInterval === 0) {
+//         holdInterval = setInterval(function () {
+//             countdown--;
+//             timer.textContent = "Time: " + countdown;
+
+//             if (countdown <= 0) {
+//                 clearInterval(holdInterval);
+//                 allDone();
+//                 currentTime.textContent = "Time's up!";
+//             }
+//         }, 1000);
+//     }
+//     render(questionIndex);
+// });
 
 function startQuiz() {
     console.log("Hello");
@@ -61,21 +97,30 @@ function checkAnswer(event) {
 
     if (choice == questionArray[index].correct) {
         score += 10;
+        alert("correct!")
         scoreContainer.textContent = score
         checkGame();
+
     }
     else {
         score -=10;
+        countdown -= 10;
+        alert("incorrect :o")
         scoreContainer.textContent = score
+        timer.textContent = countdown
         checkGame();
     }
+
     //console.log(event)
 }
 function checkGame(){
     if(index == questionArray.length - 1){
     //end the game
     //show highScore screen
+    scoreArr.push(score)
+    localStorage.setItem("HighScore", JSON.stringify(scoreArr))
     console.log("Game ended")
+    window.location.href = "highscore.html"
     }
     else {
         index++;

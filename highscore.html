@@ -10,7 +10,17 @@
 <h1>High Scores</h1>
 <body>
     <a href="./index.html" class= "start">Go Back</a>
-    <a href="#" class= "start">Clear Highscores</a>
+    <a href="#" class= "start" button onclick="deleteItems()" >Clear Highscores</a> </button>
+
+    <input id="initialInput" type="text" placeholder="Enter Initials">
+    <button id="initialBtn">Save Initials</button>
+
+    <div>
+        <h4>HighScores</h4>
+        <ol id="highscoreBoard">
+
+        </ol>
+    </div>
 </body>
-<script src="script.js"></script>
+<script src="highScore.js"></script>
 </html>
